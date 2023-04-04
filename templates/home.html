@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+</head>
+<body>
+    <h2>Regex Finder</h2>
+    <form method="post">
+        <label for="pattern">Regular Expressions:</label>
+        <input type="text" name="pattern"> <br><br>
+        <label for="text">Text string:</label>
+        <input type="text" name="text"> <br><br>
+        <input type="submit" value="FIND"> 
+        <input type="reset" value="REFRESH"> 
+
+    </form>
+    <br>
+    <br>
+    {% if matches %}
+    <p>Regular Expressions:{{pattern}}</p>
+    <p>Test String:{{text}}</p>
+    <h2>Matches:</h2>
+    <ul>
+        {% for match in matches %}
+        <li>{{ match }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No Matches Found</p>
+    {% endif %}
+</body>
+
+</html>
